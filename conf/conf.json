@@ -1,0 +1,27 @@
+{
+    "logPath": "log/mylog.log",
+    "tasks": [
+        {
+            "url": "http://127.0.0.1:8080/test1",
+            "timeunit": "Second",
+            "interval": 2,
+            "immediateExe": false,
+            "method": "post",
+            "params":{
+                "param1":["2"]
+            },
+            "des":"测试任务1"
+        },
+        {
+            "url": "http://127.0.0.1:8080/test2",
+            "timeunit": "Hour",
+            "interval": 3,
+            "immediateExe": false,
+            "method": "post",
+            "params":{
+                "param1":["3"]
+            },
+            "des":"测试任务2"
+        }
+    ]
+}
