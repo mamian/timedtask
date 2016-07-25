@@ -3,7 +3,7 @@
 ##### 配置文件
 + 配置文件位于conf/conf.json中
 + 各配置项说明
-	- logPath：日志文件路径
+	- logPath：日志文件路径（如果LogPath不为""，输出日志到LogPath，否则日志输出到控制台）
 	- tasks：要执行的定时任务列表
 		- url：定时任务url地址(支持相对地址，若为相对url，则需要执行命令时传入rootUrl参数)
 		- timeunit：定时任务间隔时间单位

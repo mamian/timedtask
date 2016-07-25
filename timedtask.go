@@ -117,13 +117,17 @@ func main() {
     flag.Parse()
 
     config := conf.Load("conf/conf.json")
-    logfile,err := os.OpenFile(config.LogPath,os.O_CREATE|os.O_APPEND|os.O_RDWR,0);
-    if err!=nil {
-        fmt.Printf("%s\r\n",err.Error());
-        os.Exit(-1);
+
+    //如果LogPath不为""，输出日志到LogPath，否则日志输出到控制台
+    if len(config.LogPath) > 0 {
+        logfile,err := os.OpenFile(config.LogPath,os.O_CREATE|os.O_APPEND|os.O_RDWR,0);
+        if err!=nil {
+            fmt.Printf("%s\r\n",err.Error());
+            os.Exit(-1);
+        }
+        defer logfile.Close();
+        log.SetOutput(logfile)
     }
-    defer logfile.Close();
-    log.SetOutput(logfile)
 
     log.Println("========load conf file success!")
 
